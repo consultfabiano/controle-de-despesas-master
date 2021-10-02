@@ -12,12 +12,12 @@ const localStorageTransactions = JSON.parse(localStorage
 let transactions = localStorage
     .getItem('transactions') !== null ? localStorageTransactions : []    
 
-const removeTransaction = ID => {
-    transactions = transactions.filter(transaction => 
-        ID !== ID)
-    updateLocalStorage()
-    init()
-}
+    const removeTransaction = ID => {
+        transactions = transactions.filter(transaction => 
+            transaction.id !== ID)
+        updateLocalStorage()
+        init()
+    }
 
 const addTransactionIntoDOM = ({ amount, name, id }) => {
     const operator = amount < 0 ? '-' : '+'
